@@ -5,6 +5,7 @@ import { createApp, markRaw } from 'vue'
 import App from './App.vue'
 
 import '@/assets/base.css'
+import '@/assets/iconfont/iconfont.js'
 
 const head = createHead()
 const app = createApp(App)
