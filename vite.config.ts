@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import PackageJson from './package.json' with { type: 'json' }
+import vueDevTools from "vite-plugin-vue-devtools";
 
 process.env.VITE_APP_VERSION = PackageJson.version
 if (process.env.NODE_ENV === 'production') {
@@ -27,6 +28,7 @@ export default defineConfig({
       dts: 'auto-imports.d.ts',
       vueTemplate: true,
     }),
+    vueDevTools(),
     Components({
       dts: 'components.d.ts',
     }),

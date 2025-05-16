@@ -1,8 +1,40 @@
 import { ref } from 'vue'
 import { inject } from 'vue'
 import type { Ref } from 'vue'
-import useCarHook from '@/components/Car/hook'
+// import useCarHook from '@/components/Car/hook'
+import useChat from '@/hooks/useChat.ts'
+const { sendMessage } = useChat()
+/**
+ * 底部导航项配置项接口
+ * @interface FooterItem
+ */
+interface FooterItem {
+  /** 未激活状态下的图标标识 */
+  icon: string
+  /** 激活状态下的图标标识 */
+  activeIcon: string
+  /** 导航项文本 */
+  text: string
+  /** 导航项对应的值 */
+  value: string
+}
 
+/**
+ * 底部图标选择项配置接口
+ * @interface IconSelection
+ */
+interface IconSelection {
+  /** 颜色值（当isPic为false时有效） */
+  color: string
+  /** 图片路径（当isPic为true时有效） */
+  pic: string
+  /** 是否为图片类型标识 */
+  isPic: boolean
+  /** 选项文本 */
+  text: string
+  /** 选项对应的值 */
+  value: string
+}
 /**
  * 底部导航项配置
  */
@@ -34,7 +66,7 @@ export const FOOTER_ICON_SELECTION1: IconSelection[] = [
  * 底部导航组件逻辑hook
  */
 export default () => {
-  const isHidden = inject('sidebarHidden') as Ref<boolean>
+  const isHidden = inject('isSidebarHidden') as Ref<boolean>
   const activeIndex = ref(0)
   const activeSelectedIndex = ref<number>()
 
@@ -45,7 +77,8 @@ export default () => {
   const handleClickScene = (index: number) => {
     activeIndex.value = index
     activeSelectedIndex.value = -1
-    useCarHook().handleClickCommand(FOOTER_ITEMS[index].value)
+    // useCarHook().handleClickCommand(FOOTER_ITEMS[index].value)
+    sendMessage(FOOTER_ITEMS[index].value)
   }
 
   /**
@@ -54,7 +87,8 @@ export default () => {
    */
   const handleClickSkin = (index: number) => {
     activeSelectedIndex.value = index
-    useCarHook().handleClickCommand(FOOTER_ICON_SELECTION1[index].value)
+    // useCarHook().handleClickCommand(FOOTER_ICON_SELECTION1[index].value)
+    sendMessage(FOOTER_ICON_SELECTION1[index].value)
   }
 
   return {

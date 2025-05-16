@@ -2,8 +2,9 @@
 import { ref, provide } from 'vue'
 import Sidebar from './components/Sidebar/index.vue'
 import Footer from './components/Footer/index.vue'
+
 const isSidebarHidden = ref(false)
-provide('sidebarHidden', isSidebarHidden)
+provide('isSidebarHidden', isSidebarHidden)
 const route = useRoute()
 
 useHead({

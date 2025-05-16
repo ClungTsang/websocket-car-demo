@@ -11,27 +11,27 @@ const handleClickCommand = (command: string) => {
   }
 }
 export default () => {
-  onMounted(() => {
-    const PixelStreamingApplicationStyles = new PixelStreamingApplicationStyle()
-    PixelStreamingApplicationStyles.applyStyleSheet()
+  // onMounted(() => {
+  //   const PixelStreamingApplicationStyles = new PixelStreamingApplicationStyle()
+  //   PixelStreamingApplicationStyles.applyStyleSheet()
 
-    const config = new Config({
-      useUrlParams: true,
-      initialSettings: {
-        HideUI: true,
-        AutoConnect: true,
-        HoveringMouse: true,
-      },
-    })
+  //   const config = new Config({
+  //     useUrlParams: true,
+  //     initialSettings: {
+  //       HideUI: true,
+  //       AutoConnect: true,
+  //       HoveringMouse: true,
+  //     },
+  //   })
 
-    stream.value = new PixelStreaming(config)
-    console.log('stream实体创建成功', stream.value)
-    const application = new Application({
-      stream: stream.value,
-      onColorModeChanged: isLightMode => PixelStreamingApplicationStyles.setColorMode(isLightMode),
-    })
-    document.getElementById('car')?.appendChild(application.rootElement)
-  })
+  //   stream.value = new PixelStreaming(config)
+  //   console.log('stream实体创建成功', stream.value)
+  //   const application = new Application({
+  //     stream: stream.value,
+  //     onColorModeChanged: isLightMode => PixelStreamingApplicationStyles.setColorMode(isLightMode),
+  //   })
+  //   document.getElementById('car')?.appendChild(application.rootElement)
+  // })
 
   return {
     handleClickCommand
