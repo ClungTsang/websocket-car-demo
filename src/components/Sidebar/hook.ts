@@ -1,26 +1,37 @@
-import { ref, inject } from "vue";
-import type { Ref } from "vue";
+import { ref, inject } from 'vue'
+import type { Ref } from 'vue'
 import useCarHook from '@/components/Car/hook'
-export const SIDEBAR_ITEMS = [
-  { icon: "icon-icon_shouye", text: "Porsche", value: 'home' },
-  { icon: "icon-icon_zhijia", text: "智驾", value: 'smart' },
-  { icon: "icon-icon_fengzu", text: "风阻", value: 'fengzu' },
-  { icon: "icon-icon_neiwaishi", text: "内外饰", value: 'neiwaishi' },
-  { icon: "icon-icon_zidingyi", text: "自定义", value: 'zidingyi' },
-];
 
+export const SIDEBAR_ITEMS: SidebarItem[] = [
+  { icon: 'icon-icon_shouye', text: 'Porsche', value: 'home' },
+  { icon: 'icon-icon_zhijia', text: '智驾', value: 'smart_drive' },
+  { icon: 'icon-icon_fengzu', text: '风阻', value: 'aerodynamics' },
+  { icon: 'icon-icon_neiwaishi', text: '内外饰', value: 'interior_exterior' },
+  { icon: 'icon-icon_zidingyi', text: '自定义', value: 'customization' },
+]
+
+/**
+ * 侧边栏组件逻辑hook
+ */
 export default () => {
-  const isHidden = inject("sidebarHidden") as Ref<boolean>;
-  const activeIndex = ref(0);
+  /** 侧边栏是否隐藏 */
+  const isHidden = inject('sidebarHidden') as Ref<boolean>
+  /** 当前激活的导航项索引 */
+  const activeIndex = ref(0)
 
+  /**
+   * 处理导航项点击
+   * @param index - 点击的导航项索引
+   */
   const handleCLick = (index: number) => {
     activeIndex.value = index
     useCarHook().handleClickCommand(SIDEBAR_ITEMS[index].value)
   }
+
   return {
     isHidden,
     activeIndex,
     SIDEBAR_ITEMS,
-    handleCLick
+    handleCLick,
   }
 }
