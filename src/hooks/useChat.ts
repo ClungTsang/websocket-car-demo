@@ -11,7 +11,7 @@ interface Message {
 const messages: Ref<Message[]> = ref([]);
 
 /** 存储当前连接ID */
-const currentId: Ref<string> = ref('');
+const currentId: Ref<number> = ref(0);
 
 /** WebSocket连接实例 */
 const socket: Ref<WebSocket | null> = ref(null);
@@ -54,7 +54,7 @@ export default function useChat() {
       try {
         const data = JSON.parse(event.data);
         if (data.type === 'welcome') {
-          currentId.value = data.id;
+          currentId.value = Number(data.id) + 1;
           console.log('已接收初始ID:', currentId.value);
           return;
         }
