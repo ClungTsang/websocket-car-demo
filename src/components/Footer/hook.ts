@@ -55,11 +55,11 @@ export const FOOTER_ICON_SELECTION1: IconSelection[] = [
   { color: '#ffc51c', pic: '', isPic: false, text: '黄色', value: '#ffc51c' },
   { color: '#01b7ff', pic: '', isPic: false, text: '浅蓝色', value: '#01b7ff' },
   { color: '#7300ff', pic: '', isPic: false, text: '紫色', value: '#7300ff' },
-  { color: '', pic: '/src/assets/skins/skin1.png', isPic: true, text: '皮肤1', value: 'skin_1' },
-  { color: '', pic: '/src/assets/skins/skin2.png', isPic: true, text: '皮肤2', value: 'skin_2' },
-  { color: '', pic: '/src/assets/skins/skin3.png', isPic: true, text: '皮肤3', value: 'skin_3' },
-  { color: '', pic: '/src/assets/skins/skin4.png', isPic: true, text: '皮肤4', value: 'skin_4' },
-  { color: '', pic: '/src/assets/skins/skin5.png', isPic: true, text: '皮肤5', value: 'skin_4' },
+  { color: '', pic: '@/assets/skins/skin1.png', isPic: true, text: '皮肤1', value: 'skin_1' },
+  { color: '', pic: '@/assets/skins/skin2.png', isPic: true, text: '皮肤2', value: 'skin_2' },
+  { color: '', pic: '@/assets/skins/skin3.png', isPic: true, text: '皮肤3', value: 'skin_3' },
+  { color: '', pic: '@/assets/skins/skin4.png', isPic: true, text: '皮肤4', value: 'skin_4' },
+  { color: '', pic: '@/assets/skins/skin5.png', isPic: true, text: '皮肤5', value: 'skin_4' },
 ]
 
 /**
